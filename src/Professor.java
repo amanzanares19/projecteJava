@@ -1,13 +1,14 @@
 public class Professor extends Persona{
     private double sou;
 
-    public void canviarSou(double nouSou) {
-        if (nouSou <= 3000.0) {
-            this.sou = nouSou;
+    public void canviarSou(double nouSou) throws ArithmeticException {
+        if (nouSou > 3000.0) {
+            throw new ArithmeticException("Té que cobrar menys de 3000");
+        } else if(nouSou < 0) {
+            throw new ArithmeticException("Té que cobrar valors positius");
         } else {
-            System.out.println("Els profes han de cobrar menys de 3000");
-        }
-            
+            this.sou = nouSou;
+        }      
     }
 
     public String obtenirDades() {

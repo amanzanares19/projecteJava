@@ -4,26 +4,45 @@ public class Persona {
     
     private String nom;
 
-    public Persona(){
-        
-        dni = "anonimo";
-        nom = "Anonimo";
-    }
+    /* testing
+    public Persona() {
+        dni = "Ejemplo";
+        nom = "Anonimo";        
+    } */
+   
 
-    public void canviarNom(String nom){
+    public void canviarNom(String nom) {
         this.nom = nom;
     }
+    
 
-    public void assignarDni(String dni){
-        if (dni.length() == 9) {
-            this.dni = dni;
+    public void assignarDni(String dni) throws Exception {
+        
+        if (this.dni == null) {
+            
+            if (dni.length() == 9) {
+                this.dni = dni;
+            } else {
+                throw new Exception("La longitud del dni debe ser 9");
+            }
+            
         } else {
-            System.out.println("Error, longitud del dni debe ser 9");
+            throw new Exception("El dni no es pot canviar");
         }
+        
     }
 
+    public String obtenirDades() {
 
-    public String obtenirDades(){
+        if (nom == null || nom.isEmpty()) {
+            throw new NullPointerException("Falta indicar el nom");
+        }
+
+        if (dni == null || dni.isEmpty()) {
+            throw new NullPointerException("Falta indicar el dni");
+        }
+
         return "Persona que es diu: " + nom + " amb DNI: " + dni;
     }
+
 }

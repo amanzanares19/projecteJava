@@ -7,11 +7,11 @@ public class ProfessorSubstitut extends Professor {
     private Date dataFi;
 
     public void assignarSubstitucio(Date dataInici, Date dataFi) {
-        this.dataInici = new Date();
-        this.dataFi = new Date();
+        this.dataInici = dataInici;
+        this.dataFi = dataFi;
     }
 
     public String obtenirDades() {
-        return super.obtenirDades() + " Data de quan va començar el sustitut: " + dataInici.getDate() + "/" + dataInici.getMonth() + "/" + dataInici.getYear() + " i quan terminará: " + dataFi.getDate() + "/" + dataFi.getMonth() + "/" + dataFi.getYear();
+        return super.obtenirDades() + " Data de quan va començar el substitut: " + dataInici.getDate() + "/" + dataInici.getMonth() + "/" + dataInici.getYear() + " i quan terminará: " + dataFi.getDate() + "/" + dataFi.getMonth() + "/" + dataFi.getYear();
     }
 }

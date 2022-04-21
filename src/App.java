@@ -2,8 +2,7 @@ import java.util.Date;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Date dataFi = new Date(2022, 4, 15);
-        Date dataInici = new Date(2019, 4, 10);
+        
         /*
         Persona p = new Persona();
          
@@ -12,11 +11,16 @@ public class App {
        
         System.out.println(p.obtenirDades()); 
         */
+        Date dataFi = new Date(2022, 4, 15);
+        Date dataInici = new Date(2019, 4, 10);
 
         Professor profe = new Professor();
         profe.canviarNom("Marc");
         profe.assignarDni("39436208Q");
-        profe.canviarSou(2000.0);
+        //Dar error a proposito del intento de modificacion de dni
+        /* profe.assignarDni("39436208N"); */
+
+        profe.canviarSou(1800.0);
         /* System.out.println(profe.obtenirDades() + "\n"); */
         
         Estudiant e = new Estudiant();
@@ -33,13 +37,11 @@ public class App {
 
         s.assignarSubstitucio(dataInici, dataFi);
 
-        /* System.out.println(s.obtenirDades() + "\n"); */
-
         Institut ins = new Institut("La Guineueta");
 
         ins.afegirProfe(profe);
         ins.afegirEstudiant(e);
         ins.imprimirInformacio();
-        
+        System.out.println(s.obtenirDades() + "\n");
     }
 }
