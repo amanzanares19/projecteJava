@@ -1,7 +1,9 @@
+import java.util.Date;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        
-        
+        Date dataFi = new Date(2022, 4, 15);
+        Date dataInici = new Date(2019, 4, 10);
         /*
         Persona p = new Persona();
          
@@ -15,23 +17,29 @@ public class App {
         profe.canviarNom("Marc");
         profe.assignarDni("39436208Q");
         profe.canviarSou(2000.0);
-        System.out.println(profe.obtenirDades() + "\n");
+        /* System.out.println(profe.obtenirDades() + "\n"); */
         
         Estudiant e = new Estudiant();
         e.canviarNota(6.5);
         e.canviarNom("Alex");
         e.assignarDni("62091823F");
 
-        System.out.println(e.obtenirDades() + "\n");
+        /* System.out.println(e.obtenirDades() + "\n"); */
 
         ProfessorSubstitut s = new ProfessorSubstitut();
         s.canviarNom("German");
         s.assignarDni("24985464L");
         s.canviarSou(2000.0);
-        s.assignarSubstitucio("24/10/2019", "13/05/2022");;
 
-        System.out.println(s.obtenirDades() + "\n");
+        s.assignarSubstitucio(dataInici, dataFi);
+
+        /* System.out.println(s.obtenirDades() + "\n"); */
 
         Institut ins = new Institut("La Guineueta");
+
+        ins.afegirProfe(profe);
+        ins.afegirEstudiant(e);
+        ins.imprimirInformacio();
+        
     }
 }
