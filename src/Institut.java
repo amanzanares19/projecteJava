@@ -11,6 +11,7 @@ public class Institut {
         System.out.println(nom);
     }
     
+    /* Código redundante
     public void afegirProfe(Professor profe) {
         this.personas.add(profe);
         
@@ -19,6 +20,11 @@ public class Institut {
     
     public void afegirEstudiant(Estudiant estudiant) {
         this.personas.add(estudiant);
+    } 
+    */
+
+    public void afegirPersona(Persona person) {
+        this.personas.add(person);
     }
 
     
