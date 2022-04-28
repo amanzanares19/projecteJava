@@ -60,8 +60,8 @@ public class App {
 
         ins.afegirPersona(profe);
         ins.afegirPersona(e);
+        ins.afegirPersona(s);
         ins.imprimirInformacio();
-        System.out.println(s.obtenirDades() + "\n");
 
     }
 }
