@@ -51,6 +51,10 @@ public class Estudiant extends Persona{
         mean = mean / this.notas.size();
 
         //Obtenció de nota màxima, mínima y mitjana
-        return super.obtenirDades() + "(Estudiant amb nota màxima: " + maxNota + ", nota mínima: " + minNota + " i amb una mitjana de: " + mean + ")." + " Totes les notes: " + notas;
+        if (this.notas.size() == 0) {
+            return super.obtenirDades() + " (Estudiant sense notes)";    
+        } else {
+            return super.obtenirDades() + " (Estudiant amb nota màxima: " + maxNota + ", nota mínima: " + minNota + " i amb una mitjana de: " + mean + ")." + " Totes les notes: " + notas;
+        }
     }
 }
