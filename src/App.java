@@ -1,7 +1,5 @@
 import java.util.Date;
 import java.util.Scanner;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,9 +72,13 @@ public class App {
         ins.imprimirInformacio();
         System.out.println();
 
-
         //Tercera part (Opcional)
-        
+        showMenu();
+
+    }
+
+    private static void showMenu() throws Exception {
+
         System.out.println("Introdueix el número de l'acció que vols fer");
         System.out.println("0) Terminar programa");
         System.out.println("1) Veure lista d'insitituts");
@@ -85,24 +87,19 @@ public class App {
         System.out.println("4) Eliminar un Institut");
         System.out.println("5) Crear un Institut");
 
-        showMenu();
-
-    }
-
-    private static void showMenu() throws Exception {
-
         int num = sc.nextInt();
         while (num < 0 || num > 5) {
             System.out.println("El numero debe ser entre 1 y 5");
             num = sc.nextInt();
         }
 
-        
         while (num != 0) {
+            
             switch (num) {
                 case 0:
                     System.out.println("Fin del programa");
                     sc.close();
+                    st.close();
                     break;
                 case 1:
                     llistaInstitut();
@@ -125,34 +122,47 @@ public class App {
                     System.out.println("Institut creat correctament.");
                     break;
             }
+
+            System.out.println("\nIntrodueix el número de l'acció que vols fer");
+            System.out.println("0) Terminar programa");
+            System.out.println("1) Veure lista d'insitituts");
+            System.out.println("2) Veure informació completa d'un institut");
+            System.out.println("3) Afegir persona a un institut");
+            System.out.println("4) Eliminar un Institut");
+            System.out.println("5) Crear un Institut");
+
             num = sc.nextInt();
         }
 
     }
 
-
-
     private static int checkInstitut() {
+
         if (instituts.size() > 0) {
             return 1;
         } else {
            System.out.println("Encara no hi ha cap institut");
            return 0;
         }
+
     }
 
     private static void removeInstitut() {
+
         if (checkInstitut() == 1) {
             System.out.println("Escriu el número de l'institut que vols eliminar:");
             int rm = sc.nextInt();
             
             if (rm >= 0 && rm < instituts.size()) {
+
                 instituts.remove(rm);
                 System.out.println("Insitut eliminat");
+
             } else {
                 System.out.println("El número ha de ser com a mínim 0 i màxim la quantitat d'instituts");
             }
         }
+
     }
 
     private static void llistaInstitut(){
@@ -174,6 +184,11 @@ public class App {
             System.out.println("Escribe el número de l'institut que vols consultar");
             int position = sc.nextInt(); 
 
+            while (position < 0 || position >= instituts.size()) {
+                System.out.println("El numero debe estar en la lista de institutos");
+                position = sc.nextInt();
+            }
+
             instituts.get(position).imprimirInformacio();
 
             /* Other way 
@@ -193,7 +208,12 @@ public class App {
             System.out.println("Escribe el número de l'institut que vols editar");
     
             int position = sc.nextInt(); 
-    
+            
+            while (position < 0 || position >= instituts.size()) {
+                System.out.println("El numero debe estar en la lista de institutos");
+                position = sc.nextInt();
+            }
+
             for (int i = 0; i < instituts.size(); i++) {
                 if (i == position) {
                    
@@ -203,6 +223,7 @@ public class App {
                     System.out.println("3) Substitut");
     
                     int num = sc.nextInt();
+
                     switch (num) {
                         case 1:
     
@@ -262,15 +283,17 @@ public class App {
                             
                             instituts.get(position).afegirPersona(ps);
                             break;
+
                         default:
                             System.out.println("No existeix el tipus de persona");
                             break;
+
                     }
+
                     System.out.println("Persona creada correctament");
                 }
             }
         }
-
     }
     
 }
